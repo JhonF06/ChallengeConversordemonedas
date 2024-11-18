@@ -1,3 +1,5 @@
+// Clase encargada de Generar los Archivos JSON
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

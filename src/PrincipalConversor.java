@@ -3,13 +3,14 @@ import java.util.Scanner;
 
 public class PrincipalConversor {
     public static void main(String[] args) {
+        // Variables y el Scanner que recepta la respuesta del usuario
         Scanner lectura = new Scanner(System.in);
         ConversorApi consulta = new ConversorApi();
         String origen = "";
         String destino = "";
         double valor;
         int usuario = 0;
-
+//While que inicia el Menu al usuario
         while (usuario != 9) {
             System.out.println("""
                 Te damos bienvenida al conversor de moneda
@@ -26,7 +27,7 @@ public class PrincipalConversor {
                 9- Salir.
                 """);
             usuario = lectura.nextInt();
-
+// Switch lleva el proseso de cada una de las seleccion tomada por el usuario
             switch (usuario){
                 case 1:
                     origen = "USD";
@@ -71,13 +72,13 @@ public class PrincipalConversor {
             if (usuario >= 1 && usuario <= 8) {
                 System.out.println("Ingrese el valor que desea convertir");
                 valor = lectura.nextDouble();
-
+// Proceso de funcionamiento, encargado de llevar el monto que da el usuario para realizar la conversion
                 if (valor > 0) {
                     MonedasApi operacion = consulta.tasaDeCambio(origen, destino,valor);
                     System.out.println("El valor de " + valor + " [" + origen +
                             "] equivale a " + operacion.conversion_result() +
                             " [" + destino + "]");
-
+                    //funcion que genera el JSON
                     GenerarJson generador = new GenerarJson();
                     try {
                         generador.archivo(operacion, origen, destino);

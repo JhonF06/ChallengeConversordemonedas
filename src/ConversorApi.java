@@ -1,6 +1,6 @@
-import com.google.gson.Gson;
+// Esta clase nos hace toda la consulta a la API
 
-import java.io.IOException;
+import com.google.gson.Gson;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
